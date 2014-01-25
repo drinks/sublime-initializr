@@ -22,8 +22,7 @@ Initializr: New Project
 
 Provide a path for your new project and hit enter. That's it!
 
-**Note:**
-
+**Note:**  
 If you're using Sublime Text 2, there's no way to set the current project programmatically, so you'll have to select the new .sublime-project file from the dialog that appears.
 
 ## Settings
