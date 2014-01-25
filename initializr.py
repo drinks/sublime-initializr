@@ -40,6 +40,7 @@ class InitializrProject(sublime_plugin.WindowCommand):
         if os.path.exists(path):
             self.window.show_input_panel('That path exists! Where to save your new project?',
                                          '~/newproject', self.create, None, None)
+            return
         self.download()
         if not self.verify():
             sublime.error_message('Zipfile contained a suspicious path. Aborting...')
