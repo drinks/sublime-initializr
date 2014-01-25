@@ -1,0 +1,20 @@
+[
+    {
+        "caption": "Preferences: Initializr Settings - Default",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/Initializr/initializr.sublime-settings"
+        }
+    },
+    {
+        "caption": "Preferences: Initializr Settings - User",
+        "command": "open_file", "args":
+        {
+            "file": "${packages}/User/Initializr.sublime-settings"
+        }
+    },
+    {
+        "caption": "Initializr: New Project",
+        "command": "initializr_project"
+    }
+]
