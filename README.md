@@ -2,9 +2,19 @@
 
 Quickly bootstrap and open an HTML5 Boilerplate project from Sublime.
 
+## Installation
+
+### Package Control
+
+Add https://github.com/drinks/sublime-initializr to your Package Control repositories and install.
+
+### Vanilla Sublime
+
+Clone this repo into your Packages folder.
+
 ## Usage
 
-Clone into your sublime Packages folder (package control pending), and run the command:
+Just run the command:
 
 ```
 Initializr: New Project
