@@ -29,10 +29,10 @@ class InitializrProject(sublime_plugin.WindowCommand):
                                      '~/newproject', self.create, None, None)
 
     def create(self, path):
-        if path.startswith('~'):
-            path = path.replace('~', os.environ.get('HOME'))
+        if path.startswith('~/'):
+            path = os.path.expanduser(path)
         path = os.path.realpath(path)
-        if os.path.isdir(path):
+        if os.path.exists(path):
             self.window.show_input_panel('That path exists! Where to save your new project?',
                                          '~/newproject', self.create, None, None)
         self.download(None)
