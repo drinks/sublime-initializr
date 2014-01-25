@@ -67,7 +67,7 @@ class InitializrProject(sublime_plugin.WindowCommand):
 
     def verify(self):
         for name in self.zf.namelist():
-            if '../' in name:
+            if '../' in name or name.startswith('/'):
                 return False
         return True
 
