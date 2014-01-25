@@ -31,7 +31,8 @@ class InitializrProject(sublime_plugin.WindowCommand):
     def run(self):
         self.settings = sublime.load_settings('initializr.sublime-settings')
         self.window.show_input_panel('Where to save your new project?',
-                                     '~/newproject', self.create, None, None)
+                                     self.settings.get('default_path', '~/newproject'),
+                                     self.create, None, None)
 
     def create(self, path):
         if path.startswith('~/'):
@@ -39,7 +40,8 @@ class InitializrProject(sublime_plugin.WindowCommand):
         path = os.path.realpath(path)
         if os.path.exists(path):
             self.window.show_input_panel('That path exists! Where to save your new project?',
-                                         '~/newproject', self.create, None, None)
+                                         self.settings.get('default_path', '~/newproject'),
+                                         self.create, None, None)
             return
         self.download()
         if not self.verify():
