@@ -57,8 +57,7 @@ class InitializrProject(sublime_plugin.WindowCommand):
         self.finish(path)
 
     def download(self):
-        if not url:
-            url = self.settings.get('zip_url')
+        url = self.settings.get('zip_url')
         try:
             self.zf = ZipFile(BytesIO(open_url(url).read()))
         # For ST2 Compat
