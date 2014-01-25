@@ -1,11 +1,15 @@
 import sublime, sublime_plugin
-import urllib
 import glob
 import json
 import os
 import sys
 import shutil
 import errno
+
+try:
+    from urllib.request import urlopen as open_url
+except:
+    from urllib import urlopen as open_url
 
 from io import BytesIO
 from zipfile import ZipFile
@@ -49,10 +53,10 @@ class InitializrProject(sublime_plugin.WindowCommand):
         if not url:
             url = self.settings.get('zip_url')
         try:
-            self.zf = ZipFile(BytesIO(urllib.request.urlopen(url).read()))
+            self.zf = ZipFile(BytesIO(open_url(url).read()))
         # For ST2 Compat
         except AttributeError:
-            self.zf = ZipFile(BytesIO(urllib.urlopen(url).read()))
+            self.zf = ZipFile(BytesIO(open_url(url).read()))
 
     def finish(self, path):
         project_data = {
